@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+    html,body {
+        margin:0;
+        height: 100%;
+       @apply bg-PrimaryBg;
+       @apply text-PrimaryBase;
+       scroll-behavior: smooth;
+    }
+}
+
+@layer components{
+    .ggwp{
+        @apply bg-green-500 
+    }
+    .font-size2xl{
+        @apply text-sm text-PrimaryContent
+    }
+    .font-sm{
+        @apply text-sm text-PrimaryBg font-semibold
+    }
+    .background{
+        @apply bg-PrimaryBase;
+       
+    }
+    .TitleCus{
+       @apply text-3xl text-PrimaryTitile font-semibold
+    }
+    @keyframes append-animate{
+        from {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        to{
+            transform:translateX(0%);
+            opacity:1
+        }
+    
+    }
+    .new-arrow{
+        animation: append-animate 0.5s ease-out;
+    }
+}
+
+
+
+
+/* utilities fix class */
+@layer utilites{
+
+}
