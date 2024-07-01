@@ -1,11 +1,9 @@
 <template>
-    <div>
-        <button @click.prevent="count++">Add 1</button>
-<p>Count is: {{ count }}</p>
+    <div class="h-screen  flex  justify-center items-center ">
+        <a class="text-4xl font-semibold  text-PrimaryTitile  ">Welcome my web</a>
     </div>
 </template>
 
-<script >
-
+<script setup>
 
 </script>
