@@ -2,17 +2,62 @@
 definePageMeta({
   layout: false,
 });
+
+const runtimeConfig = useRuntimeConfig()
+const { $swal } = useNuxtApp();
 const username = ref('')
 const password = ref('')
 
 const handleLogin = () => {
-  console.log('username:', username.value)
-  console.log('Password:', password.value)
-  // Add your login logic here
+  login();
 }
 const asd=()=>{
   console.log('asd')
 }
+
+const login  = async ()=> {
+  const dataform = new FormData()
+dataform.append('Username', username.value)
+dataform.append('Password', password.value)
+
+      try {
+        const response = await useFetch(`${runtimeConfig.public.apiBase}auth/login`,{
+          method: 'POST',
+          body:dataform
+        });
+        // localStorage.setItem('token', response.data.token);
+        if(response.data.value.status == "success"){
+          // console.log(response.data.value.response[0].First_name)
+          localStorage.setItem('username', response.data.value.response[0].First_name);
+          navigateTo(`/`)
+        } 
+        else{
+          $swal.fire({
+      heightAuto: false,
+      title: "Login Fail",
+            
+      icon: "error",
+      iconColor: "background",
+       timer: 1500,
+       html:"<span  class='font-sm'>Please Check Username or Password<span> ",
+      customClass: {
+        title: "font-sm",
+        popup: "background",
+        text:"font-sm"
+       
+      },
+      showConfirmButton: false,
+    });
+         
+        }
+      
+
+      
+        // this.$router.push('/');
+      } catch (err) {
+        console.error(err);
+      }
+    }
 </script>
 
 <template>

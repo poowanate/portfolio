@@ -35,7 +35,7 @@ console.log(appConfig.theme.colors)
 const todos = ref([])
 
 const loadTodo = async () =>{
-    const {data} = await useFetch(`${runtimeConfig.public.apiBase}`,{
+    const {data} = await useFetch(`${runtimeConfig.public.apiBase}post`,{
         method: 'GET',
         // headers: {
         //   Authorization: 'Bearer ' + `${token}`  },
@@ -55,7 +55,7 @@ const submitForm = async () =>{
     dataform.append('testselect', formData.value.testselect)
 
     try{
-        const {data} = await useFetch(`${runtimeConfig.public.apiBase}/create`,{
+        const {data} = await useFetch(`${runtimeConfig.public.apiBase}post/create`,{
         method: 'POST',
         body: dataform
     })
@@ -80,7 +80,7 @@ dataform.append('testselect', formData.value.testselect)
 
 console.log(dataform)
 try{
-    const {data} = await useFetch(`${runtimeConfig.public.apiBase}/${id}/update`,{
+    const {data} = await useFetch(`${runtimeConfig.public.apiBase}post/${id}/update`,{
     method: 'POST',
     body: dataform
 })
