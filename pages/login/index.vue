@@ -15,8 +15,9 @@ const asd=()=>{
   console.log('asd')
 }
 
+
 const login  = async ()=> {
-  const dataform = new FormData()
+const dataform = new FormData()
 dataform.append('Username', username.value)
 dataform.append('Password', password.value)
 
@@ -24,14 +25,20 @@ dataform.append('Password', password.value)
         const response = await useFetch(`${runtimeConfig.public.apiBase}auth/login`,{
           method: 'POST',
           body:dataform
-        });
+        }
+      
+      
+      );
         // localStorage.setItem('token', response.data.token);
+     
         if(response.data.value.status == "success"){
           // console.log(response.data.value.response[0].First_name)
-          localStorage.setItem('username', response.data.value.response[0].First_name);
+         
+         window.localStorage.setItem('username', response.data.value.response[0].First_name);
           navigateTo(`/`)
         } 
         else{
+        console.log(response.data.value.status)
           $swal.fire({
       heightAuto: false,
       title: "Login Fail",
@@ -51,7 +58,6 @@ dataform.append('Password', password.value)
          
         }
       
-
       
         // this.$router.push('/');
       } catch (err) {
