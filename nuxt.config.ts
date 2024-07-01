@@ -32,7 +32,7 @@ export default defineNuxtConfig({
 
   runtimeConfig:{
     public: {
-      apiBase: 'http://localhost:80/PHP-API/api/v1/post'
+      apiBase: 'http://localhost:80/PHP-API/api/v1/'
     }
   },
 

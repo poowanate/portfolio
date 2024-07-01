@@ -16,7 +16,7 @@ const runtimeConfig = useRuntimeConfig()
 
   
     const loadTodo = async () =>{
-    const {data} = await useFetch(`${runtimeConfig.public.apiBase}/${todoID}`,{
+    const {data} = await useFetch(`${runtimeConfig.public.apiBase}post/${todoID}`,{
         method: 'GET',
         // headers: {
         //   Authorization: 'Bearer ' + `${token}`  },
